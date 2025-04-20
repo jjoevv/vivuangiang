@@ -1,68 +1,99 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+html, body {
+  max-width: 100%;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: "SUSE", sans-serif;
+  font-optical-sizing: auto;
+
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Add this in your CSS file or as a style tag in your component */
+.hover\:bg-blue-600:hover {
+    background-color: #3b82f6; /* Adjust color as needed */
+    transition: background-color 0.2s ease, transform 0.2s ease;
   }
-  a:hover {
-    color: #747bff;
+  
+  .hover\:transform:hover {
+    transform: translateX(-3px); /* Slide effect */
   }
-  button {
-    background-color: #f9f9f9;
+  
+
+  @layer utilities {
+    .masonry {
+      column-count: 2;
+      column-gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .masonry-sm {
+        column-count: 4;
+      }
+    }
+    @media (min-width: 768px) {
+      .masonry-md {
+        column-count: 6;
+      }
+    }
+    @media (min-width: 1024px) {
+      .masonry-lg {
+        column-count: 6;
+      }
+    }
+    .masonry-item {
+      break-inside: avoid;
+    }
+  }
+  
+
+  @media (max-width: 768px) {
+    /* Đối với màn hình nhỏ hơn, như điện thoại di động */
+    .responsive-mask {
+      mask-image: linear-gradient(to right, transparent 0, black 14px, black calc(100% - 64px), transparent 100%);
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* Đối với màn hình kích thước trung bình, như máy tính bảng */
+    .responsive-mask {
+      mask-image: linear-gradient(to right, transparent 0, black 96px, black calc(100% - 96px), transparent 100%);
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    /* Đối với màn hình lớn hơn, như desktop */
+    .responsive-mask {
+      mask-image: linear-gradient(to right, transparent 0, black 128px, black calc(100% - 128px), transparent 100%);
+    }
+  }
+  
+
+  /* Add these styles to your global CSS */
+.animate-infinite-scroll {
+  animation: infinite-scroll 52s linear infinite;
+}
+
+.paused .animate-infinite-scroll {
+  animation-play-state: paused; /* Pause animation when hovered */
+}
+
+/* Animation Keyframes */
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

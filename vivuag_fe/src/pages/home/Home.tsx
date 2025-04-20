@@ -1,11 +1,16 @@
-const Home = () => {
-    return (
-      <div className="p-6 text-ocean">
-        <h1 className="text-3xl font-bold text-sun">Explore the World</h1>
-        <p className="mt-4 text-lg">Discover amazing places and experiences.</p>
+import Banner from "../../components/Banner/Banner";
+const Home: React.FC = () => {
+  return (
+    <div>
+      <Banner />
+      
+      
+      <div className="container mx-auto px-4 py-8">
+        <h2 className="text-3xl font-bold mb-6">Welcome to Our Home Page</h2>
+        <p className="text-lg">This is the home page content. Add your content here.</p>
       </div>
-    );
-  };
-  
-  export default Home;
-  
+    </div>
+  );
+};
+
+export default Home;
